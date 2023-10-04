@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonaServiceImpl extends BaseServiceImpl<Persona,Long> implements PersonaService{
+public class PersonaServiceImpl extends BaseServiceImpl<Persona,Long> implements PersonaService {
     @Autowired
     private PersonaRepository personaRepository;
 
@@ -16,4 +16,28 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona,Long> implements
         super(baseRepository);
         this.personaRepository = personaRepository;
     }
+
+    @Override
+    public List<Persona> serach(String filtro) throws Exception {
+        try {
+            //List<Persona> personas = personaRepository.findByNombreContainingOrApellidoContaining(filtro, filtro);
+            //List<Persona> personas = personaRepository.search(filtro);
+            List<Persona> personas = personaRepository.searchNativo(filtro);
+            return personas;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

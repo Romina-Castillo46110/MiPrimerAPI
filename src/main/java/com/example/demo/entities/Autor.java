@@ -22,25 +22,3 @@ public class Autor extends Base{
     @Column(name = "bibliografria", length = 1500)
     private String bibliografia;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
